@@ -454,6 +454,7 @@ function AddBook () {
                   'Add Book'
                 )}
               </Button>
+              <Button className="ms-3" variant="secondary" onClick={() => navigate('/books')}>Cancel</Button>
             </div>
           </Row>
         </Form>

@@ -14,15 +14,16 @@ function HomeCard () {
       url: apiUrl + '/user/books',
       method: 'get'
     })
-      .then(res => {
+      .then((res) => {
         setBooks(res.data.data)
       })
-      .catch(err => {
-        console.log(err)
+      .catch((err) => {
+        alert("err")
       })
   }, [])
+
   function goToDetailPage(id) {
-     navigate('/user/book/detail/' + id);
+    navigate('/user/book/detail/' + id);
   }
 
   return (
@@ -44,15 +45,15 @@ function HomeCard () {
 
       {/* Books */}
       <Row className='g-4'>
-        {books.map((book, index) => (
-          <Col key={index} xs={12} sm={6} md={4} lg={3}>
-            <Card onClick={() => goToDetailPage(book._id)}
-  className='h-100 border-0'
+        {books.map((book) => (
+          <Col key={book._id} xs={12} sm={6} md={4} lg={3}>
+            <Card
+  onClick={() => goToDetailPage(book._id)}
+  className='h-100'
   style={{
     borderRadius: '12px',
     overflow: 'hidden',
-    backgroundColor: '#ffffff',
-    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.12)'
+    cursor: 'pointer'
   }}
 >
               {/* Image Section */}

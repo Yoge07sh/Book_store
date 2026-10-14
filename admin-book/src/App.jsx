@@ -13,50 +13,59 @@ import UserList from './pages/Users/UserList'
 import PincodeList from './pages/PincodeAvailability/PincodeList'
 import AddPincode from './pages/PincodeAvailability/AddPincode'
 import EditPincode from './pages/PincodeAvailability/EditPincode'
-function App() {
+function App () {
   return (
     <BrowserRouter>
       {/* <NavBar /> */}
       <Routes>
-        <Route path="/" element={<AdminLogin />} />
+        <Route path='/' element={<AdminLogin />} />
       </Routes>
 
-      <div className="d-flex">
+      <div className='d-flex'>
         <Sidebar />
-        <main style={{ flexGrow: 1, padding: "20px" }}>
+        <main style={{ flexGrow: 1, padding: '20px' }}>
           <Routes>
-            <Route path="/admin/dashboard" element={<WelcomePage />} />
+            <Route path='/admin/dashboard' element={<WelcomePage />} />
 
             {/* Welcome Page */}
-            <Route path="/" element={<WelcomePage />} />
-            <Route path="/books" element={<BookList> </BookList>}></Route>
-            <Route path="/add/book" element={<AddBook></AddBook>}></Route>
+            <Route path='/' element={<WelcomePage />} />
+            <Route path='/books' element={<BookList> </BookList>}></Route>
+            <Route path='/add/book' element={<AddBook></AddBook>}></Route>
             <Route
-              path="/edit/book/:id"
+              path='/edit/book/:id'
               element={<BookPageForEdit></BookPageForEdit>}
             ></Route>
             <Route
-              path="/discounts"
+              path='/discounts'
               element={<DiscountList></DiscountList>}
             ></Route>
             <Route
-              path="/add/discount"
+              path='/add/discount'
               element={<CreateDiscount></CreateDiscount>}
             ></Route>
             <Route
-              path="/edit/discount/:id"
+              path='/edit/discount/:id'
               element={<DiscountForEdit></DiscountForEdit>}
             ></Route>
-            <Route path="/book/:id" element={<BookDetail></BookDetail>}></Route>
+            <Route path='/book/:id' element={<BookDetail></BookDetail>}></Route>
             <Route path='/users' element={<UserList></UserList>}></Route>
-            <Route path='/pincodes' element={<PincodeList></PincodeList>}></Route>
-            <Route path='/add/pincode' element={<AddPincode></AddPincode>}></Route>
-            <Route path='/edit/pincode/:id' element={<EditPincode></EditPincode>}></Route>
+            <Route
+              path='/pincodes'
+              element={<PincodeList></PincodeList>}
+            ></Route>
+            <Route
+              path='/add/pincode'
+              element={<AddPincode></AddPincode>}
+            ></Route>
+            <Route
+              path='/edit/pincode/:id'
+              element={<EditPincode></EditPincode>}
+            ></Route>
           </Routes>
         </main>
       </div>
     </BrowserRouter>
-  );
+  )
 }
 
 export default App
