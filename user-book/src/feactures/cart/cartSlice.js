@@ -4,6 +4,7 @@ const cartSlice = createSlice({
 
   initialState: {
     products: [],
+    totalCost: 0,
     message: ''
   },
 
@@ -18,30 +19,33 @@ const cartSlice = createSlice({
         state.message = 'Item already added to cart'
       } else {
         state.products.push(action.payload)
+        state.totalCost = state.totalCost + parseInt(action.payload.originalPrice)
         state.message = 'Item added to cart successfully'
       }
     },
 
     // Delete Product
     deleteProduct: (state, action) => {
+      let product = state.products.find(product => product._id === action.payload)
+      state.totalCost = state.totalCost - product.originalPrice;
       state.products = state.products.filter(
-        item => item._id !== action.payload
+        product => product._id !== action.payload
       )
-
-      state.message = ''
+      state.message = 'Item Remove From Cart'
     },
 
     // Clear Cart Message
     clearCartMessage: state => {
       state.message = ''
-    }
+    },
+
   }
 })
 
 export const {
   addProduct,
   deleteProduct,
-  clearCartMessage
+  clearCartMessage,
 } = cartSlice.actions
 
 export default cartSlice.reducer
